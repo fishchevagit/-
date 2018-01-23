@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CalcConsole;
+using CalcLibrary;
 
 namespace CalcConsole
 {
@@ -21,9 +23,9 @@ namespace CalcConsole
                 return true;
             return false;
         }
-        static int inputArg(out string oper, out double x, out double y)
+        static int inputArg(string enabledOperations, out string oper, out double x, out double y)
         {
-            Console.WriteLine("Operations: sum, sub, mul, div, pow, sqrt");
+            Console.WriteLine("Operations: {0}", enabledOperations);
             Console.WriteLine("Please, choose the one");
             oper = Console.ReadLine();
             if (!IsValidOperation(oper))
@@ -73,46 +75,33 @@ namespace CalcConsole
         static void Main(string[] args)
         {
             string oper;
-            double x = 0;
-            double y = 0;
+            double rez;
+            Calc calc = new Calc();
+
+
             //calc.exe sum 1 2
             if (args.Length !=0)
             {
-                oper = args[0];
-                if (!Double.TryParse(args[1], out x) || !Double.TryParse(args[2], out y))
-                {
-                    Console.WriteLine("The arguments must be numbers");
-                    int res = 0; 
-                    do
-                    {
-                        res = inputArg(out oper, out x, out y);
-                        if (res == -1)
-                        {
-                            Console.WriteLine("Error detected. Press anywhere to try again or esc to exit.");
-                            ConsoleKeyInfo s = Console.ReadKey();
-                            if (s.Key == ConsoleKey.Escape)
-                                return;
-                        }
-                        
-                    } while (res == -1);
-                }
+                rez = calc.Exec(args[0], new[] { args[1], args[2] });
             }
             else
             {
-                inputArg(out oper, out x, out y);
-            }
-            double rez = 0.0;
-            Calc calc = new Calc();
-            switch (oper)
-            {
-                case "sum": rez = calc.Sum(x, y); break;
-                case "sub": rez = calc.Sub(x, y); break;
-                case "mul": rez = calc.Mul(x, y); break;
-                case "div": rez = calc.Div(x, y); break;
-                case "pow": rez = calc.Pow(x, y); break;
-                case "sqrt": rez = calc.Sqrt(x); break;
-                //Console.WriteLine($"sum {x} {y} = {x + y}");
-                //        default;
+                string enabledOperations = calc.EnabledOperations();
+                Console.WriteLine("Operations: ");
+                Console.WriteLine("{0}", enabledOperations);
+                Console.WriteLine("Please, choose the one");
+                oper = Console.ReadLine();
+                if (!calc.IsValidOperation(oper))
+                {
+                    Console.WriteLine("Unknown operation!");
+                    Console.ReadKey();
+                    return;
+                }
+
+                Console.WriteLine("Enter the arguments.");
+
+                string[] ArgStr = Console.ReadLine().Split(' ');
+                rez = calc.Exec(oper, ArgStr);
             }
             Console.WriteLine(rez.ToString());
             Console.ReadKey();

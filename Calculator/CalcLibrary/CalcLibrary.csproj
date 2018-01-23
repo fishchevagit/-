@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B6B32C4-4B21-49E8-AF65-F8B69DA7FB8E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{134F303D-E8E9-45C3-920B-1540BE23753A}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CalcConsole</RootNamespace>
-    <AssemblyName>CalcConsole</AssemblyName>
+    <RootNamespace>CalcLibrary</RootNamespace>
+    <AssemblyName>CalcLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,17 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Calc.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="IOperation.cs" />
+    <Compile Include="IOperationResult.cs" />
+    <Compile Include="Operations\PowOperation.cs" />
+    <Compile Include="Operations\SqrtOperation.cs" />
+    <Compile Include="Operations\DivOperation.cs" />
+    <Compile Include="Operations\NumberOperation.cs" />
+    <Compile Include="Operations\SubOperation.cs" />
+    <Compile Include="Operations\MulOperation.cs" />
+    <Compile Include="Operations\SumOperation.cs" />
+    <Compile Include="OperResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CalcLibrary\CalcLibrary.csproj">
-      <Project>{134f303d-e8e9-45c3-920b-1540be23753a}</Project>
-      <Name>CalcLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

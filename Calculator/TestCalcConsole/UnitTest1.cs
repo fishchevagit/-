@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CalcConsole;
+using CalcLibrary;
 
 namespace TestCalcConsole
 {
@@ -11,8 +11,8 @@ namespace TestCalcConsole
         public void TestSum()
         {
             //arrange
-            var x = 10;
-            var y = 1;
+            var x = 10.0;
+            var y = 1.0;
             var calc = new Calc();
 
             //act
