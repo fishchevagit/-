@@ -21,11 +21,11 @@ namespace CalcLibrary
             LoadOperation(curAssembly);
 
             //операци сторонних разработчиков
-            var pathEnvironment = Path.Combine(Environment.CurrentDirectory, "extension");
+            var pathEnvironment = Path.Combine(Environment.CurrentDirectory, "extentions");
 
             if (Directory.Exists(pathEnvironment))
             {
-                var assembliies = Directory.GetFiles(pathEnvironment + "*.dll");
+                var assembliies = Directory.GetFiles(pathEnvironment, "*.dll");
 
                 foreach (var filename in assembliies)
                 {
@@ -33,7 +33,7 @@ namespace CalcLibrary
                 }
             }
 
-            //var curAssembly = Assembly.LoadFile(@"D:\kursi\20170122\калькулятор\Calculator\CalcConsole\bin\Debug\extension\exit.calculator.finance.dll");
+            //var curAssembly = Assembly.LoadFile(@"D:\kursi\20170122\калькулятор\Calculator\CalcConsole\bin\Debug\extentions\exit.calculator.finance.dll");
 
             //LoadOperation(curAssembly);
 
@@ -47,6 +47,7 @@ namespace CalcLibrary
             {
                 if (type.IsAbstract || type.IsInterface)
                     continue;
+
                 var interfaces = type.GetInterfaces();
                 if (interfaces.Contains(typeOperation))
                 {
@@ -76,6 +77,10 @@ namespace CalcLibrary
                 sb.AppendFormat("\t{0}\n",oper.Name);
             }
             return sb.ToString();
+        }
+        public string[] GetOperationName()
+        {
+            return Operations.Select(it => (it.Name)).ToArray();
         }
 
         public double Exec(string operationName, string[] args)
