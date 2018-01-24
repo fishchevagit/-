@@ -49,14 +49,18 @@ namespace DesktopCalc
 
         private void tbInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(Char.IsDigit(e.KeyChar)|| e.KeyChar==' '))
+            if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == ' '))
                 e.Handled = true;
-            //timer1.Start();
+            if (!timer1.Enabled)
+            {
+                tbInput.Text = "";
+                timer1.Start();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           /* interval++;
+            interval++;
             if (interval == 10)
             {
                 if (lbOperations.SelectedItem == null)
@@ -70,7 +74,7 @@ namespace DesktopCalc
                 interval = 0;
                 timer1.Stop();
             }
-            */
+            
         }
     }
 }

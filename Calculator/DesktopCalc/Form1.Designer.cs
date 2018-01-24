@@ -65,7 +65,7 @@
             // 
             // tbInput
             // 
-            this.tbInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbInput.Enabled = false;
             this.tbInput.Location = new System.Drawing.Point(134, 114);
             this.tbInput.Name = "tbInput";
