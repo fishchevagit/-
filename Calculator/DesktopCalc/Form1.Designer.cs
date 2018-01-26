@@ -82,6 +82,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 38);
             this.label1.TabIndex = 7;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -92,6 +93,7 @@
             this.label2.Size = new System.Drawing.Size(57, 111);
             this.label2.TabIndex = 8;
             this.label2.Text = "Операции";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -102,6 +104,7 @@
             this.label3.Size = new System.Drawing.Size(48, 44);
             this.label3.TabIndex = 9;
             this.label3.Text = "Данные";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -112,6 +115,7 @@
             this.label4.Size = new System.Drawing.Size(59, 38);
             this.label4.TabIndex = 10;
             this.label4.Text = "Результат";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -135,6 +139,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(443, 235);
             this.tableLayoutPanel1.TabIndex = 11;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // timer1
             // 

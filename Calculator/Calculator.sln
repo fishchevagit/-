@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcLibrary", "CalcLibrary\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopCalc", "DesktopCalc\DesktopCalc.csproj", "{B9288C6A-B80E-4E1E-A754-D5DF8C84B421}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcDB", "CalcDB\CalcDB.csproj", "{E4C764F9-7D16-44D3-BCCD-8B72B1490987}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B9288C6A-B80E-4E1E-A754-D5DF8C84B421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9288C6A-B80E-4E1E-A754-D5DF8C84B421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9288C6A-B80E-4E1E-A754-D5DF8C84B421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C764F9-7D16-44D3-BCCD-8B72B1490987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C764F9-7D16-44D3-BCCD-8B72B1490987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C764F9-7D16-44D3-BCCD-8B72B1490987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C764F9-7D16-44D3-BCCD-8B72B1490987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

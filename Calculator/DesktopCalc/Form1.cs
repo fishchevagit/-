@@ -1,4 +1,6 @@
-﻿using CalcLibrary;
+﻿using CalcDB.Models;
+using CalcDB.Repositories;
+using CalcLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +42,22 @@ namespace DesktopCalc
             var result = Calc.Exec(oper, tbInput.Text.Trim().Split(' '));
 
             label1.Text = result.ToString();
+
+            #region Сохранение в БД
+
+            var or = new OperationResult()
+            {
+                OperationId = lbOperations.SelectedIndex,
+                Result = result,
+                ExecutionTime = new Random().Next(100, 4000),
+                Error = "",
+                Args = tbInput.Text.Trim()
+            };
+
+            var operResultRepository = new OperResultRepository();
+            operResultRepository.Save(or);
+
+            #endregion
         }
 
         private void lbOperations_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +74,7 @@ namespace DesktopCalc
                 tbInput.Text = "";
                 timer1.Start();
             }
+            btnCalc.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -75,6 +94,31 @@ namespace DesktopCalc
                 timer1.Stop();
             }
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
