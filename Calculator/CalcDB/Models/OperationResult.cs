@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CalcDB.Repositories;
+using System;
+using System.Globalization;
 
 namespace CalcDB.Models
 {
-    public class OperationResult
+    public class OperationResult : IEntity
     {
         public long Id { get; set; }
 
@@ -24,5 +22,12 @@ namespace CalcDB.Models
         public DateTime CreationDate { get; set; }
 
         public string Error { get; set; }
+#region IEntity
+
+        string IEntity.TableName => "[dbo].[OperationResult]";
+
+        public static string TableName => "[dbo].[OperationResult]";
+
+        #endregion
     }
 }
